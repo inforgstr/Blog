@@ -1,0 +1,38 @@
+{% extends 'blog/base.html' %}
+
+{% block title %}
+    Blogs
+{% endblock %}
+
+{% block dropdown %}
+    {% for category in categories %}
+        <li><a class="dropdown-item" href="{% url 'category' category.id %}">{{ category.name }}</a></li>
+    {% endfor %}
+{% endblock %}
+
+
+{% block content %}
+    {% for post in posts %}
+    {% if post.published_date %}
+        <a href="{% url 'blog-detail' post.id %}" id="blog">
+            <div class="box" style="background-color: rgb(233, 233, 233);">
+                <strong style="font-size: 20px;">{{ post.title }}</strong>
+                <p>Author: {{ post.author }}</p>
+                <p>Category: {{ post.category }}</p>
+                <p>Created at: {{ post.created_date|date:"Y d F H:m" }}</p>
+                <p>Published at: {{ post.published_date }}</p>
+            </div>
+        </a>
+    {% else %}
+        <a href="{% url 'blog-detail' post.id %}" id="blog">
+            <div class="box" style="background-color: rgb(180, 180, 180);">
+                <strong style="font-size: 20px;">{{ post.title }}</strong>
+                <p>Author: {{ post.author }}</p>
+                <p>Category: {{ post.category }}</p>
+                <p>Created at: {{ post.created_date|date:"Y d F H:m" }}</p>
+                <p>Published at: unpublished</p>
+            </div>
+        </a>
+    {% endif %}
+    {% endfor %}
+{% endblock %}

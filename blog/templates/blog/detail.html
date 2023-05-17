@@ -1,0 +1,27 @@
+{% extends 'blog/base.html' %}
+
+{% block title %}
+    {{ post.title }}
+{% endblock %}
+
+{% block dropdown %}
+    {% for category in categories %}
+    {% for item in category.category.all %}
+        <li><a class="dropdown-item" href="{% url 'category' item.id %}">{{ category.name }}</a></li>
+    {% endfor %}
+    {% endfor %}
+{% endblock %}
+
+
+{% block content %}
+    <div class="img" style="margin:auto;">
+        {% if post.image.url %}
+            <img src="{{ post.image.url }}" alt="" width="100%">
+        {% endif %}
+    </div>
+    <div class="co" style="text-align: center; width:100%;background-color:rgb(233, 255, 238);border-radius:18px;padding: 20px;">
+        <h2>{{ post.title }}</h2>
+        <p>wrote by <strong>{{ post.author }}</strong></p>
+        <p style="text-align: left;margin: 100px auto;">{{ post.text|linebreaksbr }}</p>
+    </div>
+{% endblock %}

@@ -1,0 +1,36 @@
+{% extends 'blog/base.html' %}
+
+{% block title %}
+    {{ category.name }} blog
+{% endblock %}
+
+{% block dropdown %}
+    {% for category in categories %}
+        <li><a class="dropdown-item" href="{% url 'category' category.id %}">{{ category.name }}</a></li>
+    {% endfor %}
+{% endblock %}
+
+
+{% block content %}
+    {% for cat in category.category.all %}
+        {% if cat.published_date %}
+        <a href="{% url 'blog-detail' cat.id %}" id="blog">
+            <div class="box" style="background-color: rgb(233, 233, 233);">
+                <strong style="font-size: 20px;">{{ cat.title }}</strong>
+                <p>Author: {{ cat.author }}</p>
+                <p>Category: {{ cat.category }}</p>
+                <p>Created at: {{ cat.created_date|date:"Y d F H:m" }}</p>
+            </div>
+        </a>
+    {% else %}
+        <a href="{% url 'blog-detail' cat.id %}" id="blog">
+            <div class="box" style="background-color: rgb(180, 180, 180);">
+                <strong style="font-size: 20px;">{{ cat.title }}</strong>
+                <p>Author: {{ cat.author }}</p>
+                <p>Category: {{ cat.category }}</p>
+                <p>Created at: {{ cat.created_date|date:"Y d F H:m" }}</p>
+            </div>
+        </a>
+    {% endif %}
+    {% endfor %}
+{% endblock %}

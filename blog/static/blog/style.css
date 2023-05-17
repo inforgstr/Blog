@@ -1,0 +1,80 @@
+* {
+    font-family: 'Courier New', Courier, monospace;
+}
+
+body {
+    background-image: url('img/real.jpg');
+    background-repeat: repeat;
+}
+
+.content {
+    background-color: rgb(161, 255, 161);
+    opacity: 90%;
+    width: 80%;
+    padding: 60px 70px 200px 70px;
+    margin: 0px auto;
+    display: flex;
+    flex-wrap: wrap;
+    box-shadow: 2px 7px 2px rgb(112, 112, 112);
+}
+
+.box {
+    padding: 40px;
+    margin: 50px;
+    box-shadow: 2px 7px 2px rgb(112, 112, 112);
+}
+
+.box:hover {
+    transition-duration: 0.5s;
+    transform: scale(1.01);
+    cursor: pointer;
+}
+
+.footer {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    padding: 1rem;
+    background-color: #efefef;
+    text-align: center;
+}
+
+#blog {
+    text-decoration: none;
+    color: rgb(58, 58, 58);
+}
+
+
+html {
+    height: 100%;
+    box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+
+body {
+    position: relative;
+    margin: 0;
+    padding-bottom: 6rem;
+    min-height: 100%;
+    font-family: "Helvetica Neue", Arial, sans-serif;
+}
+
+.footer {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    padding: 1rem;
+    background-color: #efefef;
+    text-align: center;
+}
+
+.co {
+    margin: 50px;
+}
