@@ -9,13 +9,13 @@ def home(request):
     if q:
         res = []
         for item in util.list_post():
-            if q==item:
+            if q.lower()==item.lower():
                 post = get_object_or_404(Post, title=item)
                 return render(request, "blog/detail.html", {
                     "post": post,
                     "categories": Category.objects.all(),
                 })
-            if q in item:
+            if q.lower() in item.lower():
                 res.append(Post.objects.filter(title=item))
             
         return render(request, "blog/search.html", {
@@ -34,13 +34,13 @@ def blog(request):
     if q:
         res = []
         for item in util.list_post():
-            if q==item:
+            if q.lower()==item.lower():
                 post = get_object_or_404(Post, title=item)
                 return render(request, "blog/detail.html", {
                     "post": post,
                     "categories": Category.objects.all(),
                 })
-            if q in item:
+            if q.lower() in item.lower():
                 res.append(Post.objects.filter(title=item))
             
         return render(request, "blog/search.html", {
@@ -63,13 +63,13 @@ def blog_detail(request, pk):
     if q:
         res = []
         for item in util.list_post():
-            if q==item:
+            if q.lower()==item.lower():
                 post = get_object_or_404(Post, title=item)
                 return render(request, "blog/detail.html", {
                     "post": post,
                     "categories": Category.objects.all(),
                 })
-            if q in item:
+            if q.lower() in item.lower():
                 res.append(Post.objects.filter(title=item))
             
         return render(request, "blog/search.html", {
@@ -89,13 +89,13 @@ def get_category(request, pk):
     if q:
         res = []
         for item in util.list_post():
-            if q==item:
+            if q.lower()==item.lower():
                 post = get_object_or_404(Post, title=item)
                 return render(request, "blog/detail.html", {
                     "post": post,
                     "categories": Category.objects.all(),
                 })
-            if q in item:
+            if q.lower() in item.lower():
                 res.append(Post.objects.filter(title=item))
             
         return render(request, "blog/search.html", {
