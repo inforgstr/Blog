@@ -1,0 +1,1 @@
+# There will be directories that will upload for images for each saves
